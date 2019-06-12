@@ -5,39 +5,45 @@
     <title>CalculadoraPintura</title>
 </head>
 <body style="background-color:#f4f5f6">
+
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Devmedia</span>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Home</a>
+            </li>
+        </ul>
     </nav>
+
     <div class="text-center mt-3">
-        <h1>Calculadora de Pintura</h1>
-        <p>Calcule o quanto será necessário para a sua pintura.</p>
+        <h1>Quantidade de tinta</h1>
     </div>
 
-    <div class="container">
-        <form th:action="@{/calcular}" th:object="${calculadora}" method="post">
-            <div class="form-group">
-                <label for="largura">Largura(m)</label>
-                <input type="text" id="largura" th:field="*{largura}" class="form-control">
-            </div>
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Área das paredes(m²)</th>
+                <th scope="col">Área do teto(m²)</th>
+                <th scope="col">Área total do seu ambiente(m²)</th>
+                <th scope="col">Litros de Tinta</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td th:text="${areaParedes}">área das paredes</td>
+                <td th:text="${areaTeto}">área do teto</td>
+                <td th:text="${areaTotal}">área total do seu ambiente</td>
+                <td th:text="${#numbers.formatDecimal(litros,1,3)}">Litros de tinta</td>
+            </tr>
+            </tbody>
+        </table>
 
-            <div class="form-group">
-                <label for="altura">Altura(m)</label>
-                <input type="text" id="altura" th:field="*{altura}" class="form-control">
-            </div>
-
-            <div class="form-group">
-                <label for="profundidade">Profundidade(m)</label>
-                <input type="text" id="profundidade" th:field="*{profundidade}" class="form-control">
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block">Calcular</button>
-        </form>
-        <p>*Todas as medidas devem ser informadas em metro(m).</p>
     </div>
 
 </body>
-
-<!--Bootstrap 4-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
