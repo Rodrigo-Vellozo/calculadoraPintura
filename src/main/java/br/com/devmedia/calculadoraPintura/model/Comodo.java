@@ -1,6 +1,6 @@
 package br.com.devmedia.calculadoraPintura.model;
 
-public class Calculadora {
+public class Comodo {
     private Double largura;
     private Double altura;
     private Double profundidade;
