@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class CalculadoraController {
+public class ComodoController {
 
     @GetMapping("/")
     public String index(@ModelAttribute("comodo") Comodo calculadora){
@@ -16,7 +16,7 @@ public class CalculadoraController {
 
     @PostMapping("/calcular")
     public ModelAndView calcular(@ModelAttribute("comodo") Comodo comodo){
-        ModelAndView modelAndView = new ModelAndView("listagem");
+        ModelAndView modelAndView = new ModelAndView("quantidadeLitros");
 
         CalculadoraDeLitragemDeTinta calculadoraDeLitragemDeTinta = new CalculadoraDeLitragemDeTinta();
 
