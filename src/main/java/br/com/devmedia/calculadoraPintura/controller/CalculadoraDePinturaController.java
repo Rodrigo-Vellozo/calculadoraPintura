@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ComodoController {
+public class CalculadoraDePinturaController {
 
     @GetMapping("/")
-    public String index(@ModelAttribute("comodo") Comodo calculadora){
-        return "index";
+    public String home(Comodo comodo){
+        return "home";
     }
 
     @PostMapping("/calcular")
     public ModelAndView calcular(@ModelAttribute("comodo") Comodo comodo){
-        ModelAndView modelAndView = new ModelAndView("quantidadeLitros");
+        ModelAndView modelAndView = new ModelAndView("exibirLitros");
 
         CalculadoraDeLitragemDeTinta calculadoraDeLitragemDeTinta = new CalculadoraDeLitragemDeTinta();
 
-        modelAndView.addObject("litros", calculadoraDeLitragemDeTinta.calcularLitragem(comodo));
+        modelAndView.addObject("total", calculadoraDeLitragemDeTinta.calcularLitragem(comodo));
 
         return modelAndView;
     }
